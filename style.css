@@ -4,7 +4,6 @@
 }
 
 .glass-light {
-	/* background: rgba(34, 50, 85, 0.8); */
 	background: rgba(17, 33, 68, 0.8);
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
@@ -17,7 +16,6 @@
 }
 
 .glass-select-light {
-	/* background: rgba(34, 50, 85, 0.95); */
 	background: rgba(17, 33, 68, 0.8);
 	border: 1px solid rgba(255, 255, 255, 0.15);
 	color: #e2e8f0;
@@ -123,7 +121,6 @@
 }
 
 .gradient-bg-light {
-	/* background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); */
 	background: linear-gradient(135deg, #234692 0%, #7c3aed 100%);
 }
 
@@ -157,13 +154,53 @@ input[type="number"] {
 
 /* Custom select styles */
 select {
+	appearance: none; /* remove browser default arrow */
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	appearance: none;
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+	background: transparent;
+	padding: 0.5rem 2.5rem 0.5rem 0.75rem; /* room for custom arrow */
+	border-radius: 0.75rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	background-position: right 0.75rem center;
 	background-repeat: no-repeat;
-	background-position: right 1rem center;
-	background-size: 1em;
+	background-size: 1rem;
+}
+
+/* Light theme select */
+.glass-light select {
+	background-color: rgba(17, 33, 68, 0.6); /* same as your glass-light */
+	color: #ffffff; /* white text for contrast */
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dark theme select */
+.glass-dark select {
+	background-color: #12172f; /* #18173B glass effect */
+	color: #e2e8f0; /* light gray text */
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Dropdown options */
+select option {
+	background: #12172f; /* fallback dark */
+	color: #ffffff;
+}
+
+/* For light mode options */
+body.bg-lightbg select option {
+	background: #112144; /* fallback light */
+	color: #ffffff;
+}
+
+/* Hover & focus */
+select:hover,
+select:focus {
+	border-color: #38bdf8; /* your lightblue accent */
+	box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.4);
 }
 
 /* Scrollbar styling */
@@ -183,4 +220,40 @@ select {
 .dark-scrollbar::-webkit-scrollbar-thumb {
 	background: #475569;
 	border-radius: 4px;
+}
+
+/* Tab styling */
+.tab-button {
+	transition: all 0.3s ease;
+}
+
+.tab-button.active {
+	background: rgba(59, 130, 246, 0.2);
+	border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Error message styling */
+.error-message {
+	display: none;
+	margin-top: 0.25rem;
+	font-size: 0.875rem;
+	animation: fadeIn 0.3s ease-in-out;
+}
+
+.error-message-light {
+	color: #ef4444;
+}
+
+.error-message-dark {
+	color: #f87171;
+}
+
+.input-error-light {
+	border-color: #ef4444 !important;
+	box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+}
+
+.input-error-dark {
+	border-color: #f87171 !important;
+	box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.3) !important;
 }
